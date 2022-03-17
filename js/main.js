@@ -43,6 +43,11 @@ async function router() {
   // replace the content of the main element
   document.querySelector('main').innerHTML = content;
 
+  if (route == '/partials/start.html') {
+    digitalClock();
+    analogClock();
+  }
+
   route === '/partials/cities.html';
   route === '/partials/add_city.html';
 }
