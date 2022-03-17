@@ -76,8 +76,15 @@ nav {
   }
 }
 
+.logo {
+  max-width: 60px;
+  margin-right: 30px;
+}
+
 h1 {
   color: var(--color-orange);
+  margin-top: 10px;
+  text-align: center;
 }
 
 a {
