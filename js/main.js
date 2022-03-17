@@ -50,3 +50,20 @@ async function router() {
 window.addEventListener('popstate', router);
 
 router();
+
+
+// For the responsive nav
+const primaryNav = document.querySelector('.primary-navigation');
+const navDropDown = document.querySelector('.mobile-nav-dropdown');
+
+navDropDown.addEventListener('click', (event) => {
+  const visibility = primaryNav.getAttribute('data-visible');
+
+  if (visibility === "false") {
+    primaryNav.setAttribute('data-visible', true);
+    navDropDown.setAttribute('aria-expanded', true);
+  } else if (visibility === "true") {
+    primaryNav.setAttribute('data-visible', false);
+    navDropDown.setAttribute('aria-expanded', false);
+  }
+});
