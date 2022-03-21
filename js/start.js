@@ -119,3 +119,95 @@ function changeCity() {
   });
 }
 
+function openDetailWindow() {
+  var detailWindow = document.querySelector('.detailWindow');
+  var cityButton = document.querySelector('.city');
+  var span = document.getElementsByClassName("close")[0];
+
+  var cityName = document.querySelector('.detailCityName');
+  var cityDetails = document.querySelector('.cityDetails');
+  var cityPopulation = document.querySelector('.cityPopulation');
+  var detailContent = document.querySelector('.detailContent');
+
+  var currentCity = JSON.parse(localStorage.getItem('selectedCity'));
+
+  cityName.innerHTML = currentCity;
+
+  if (currentCity == "Stockholm") {
+    cityDetails.innerHTML = "Stockholm is the capital and largest city of Sweden as well as the largest urban area in Scandinavia.";
+  } else if (currentCity == "Algiers") {
+    cityDetails.innerHTML = "Algiers is the capital and largest city of Algeria";
+    cityPopulation.innerHTML = "Population: 7,896 millon";
+  } else if (currentCity == "Berlin") {
+    cityDetails.innerHTML = "Berlin  is the capital and largest city of Germany by both area and population.";
+    cityPopulation.innerHTML = "Population: 3,645 millon";
+  } else if (currentCity == "Denver") {
+    cityDetails.innerHTML = "Denver is a consolidated city and county, the capital, and most populous city of the U.S. state of Colorado.";
+    cityPopulation.innerHTML = "Population: 705 576";
+  } else if (currentCity == "Dubai") {
+    cityDetails.innerHTML = "Dubai is the most populous city in the United Arab Emirates (UAE) and the capital of the Emirate of Dubai.";
+    cityPopulation.innerHTML = "Population: 3,331 millon";
+  } else if (currentCity == "Helsinki") {
+    cityDetails.innerHTML = "is the capital, primate, and most populous city of Finland. Located on the shore of the Gulf of Finland.";
+    cityPopulation.innerHTML = "Population: 631 695";
+  } else if (currentCity == "Honolulu") {
+    cityDetails.innerHTML = "Honolulu is the capital and largest city of the U.S. state of Hawaii, which is located in the Pacific Ocean.";
+    cityPopulation.innerHTML = "Population: 348 985";
+  } else if (currentCity == "Istanbul") {
+    cityDetails.innerHTML = "Istanbul, formerly known as Constantinople, is the largest city in Turkey, serving as the country's economic, cultural and historic hub.";
+    cityPopulation.innerHTML = "Population: 15,46 millon";
+  } else if (currentCity == "Jakarta") {
+    cityDetails.innerHTML = "Jakarta, officially the Special Capital Region of Jakarta, is the largest city of Indonesia. Lying on the northwest coast of Java, the world's most populous island,";
+    cityPopulation.innerHTML = "Population: 10,56 millon";
+  } else if (currentCity == "Jerusalem") {
+    cityDetails.innerHTML = "Jerusalem  is a city in Western Asia. Situated on a plateau in the Judaean Mountains between the Mediterranean and the Dead Sea, it is one of the oldest cities in the world, and is considered holy for the three major Abrahamic religions: Judaism, Christianity, and Islam.";
+    cityPopulation.innerHTML = "Population: 874 186";
+  } else if (currentCity == "London") {
+    cityDetails.innerHTML = "London is the capital and largest city of England and the United Kingdom.";
+    cityPopulation.innerHTML = "Population: 8,982 millon";
+  } else if (currentCity == "Melbourne") {
+    cityDetails.innerHTML = "Melbourne is the capital and most-populous city of the Australian state of Victoria, and the second-most populous city in both Australia and Oceania.";
+    cityPopulation.innerHTML = "Population: 5,078 millon";
+  } else if (currentCity == "Nairobi") {
+    cityDetails.innerHTML = "Nairobi is the capital and the largest city of Kenya. The name comes from the Maasai phrase Enkare Nairobi, which translates to 'cool water', a reference to the Nairobi River which flows through the city.";
+    cityPopulation.innerHTML = "Population: 4,397 millon";
+  } else if (currentCity == "New York") {
+    cityDetails.innerHTML = "New York, often called New York City (NYC) to distinguish it from the state of New York, is the most populous city in the United States.";
+    cityPopulation.innerHTML = "Population: 8,419 millon";
+  } else if (currentCity == "Paris") {
+    cityDetails.innerHTML = "Paris is the capital and most populous city of France. Since the 17th century, Paris has been one of the world's major centres of finance, diplomacy, commerce, fashion, gastronomy, science, and arts.";
+    cityPopulation.innerHTML = "Population: 2,161 millon";
+  } else if (currentCity == "Singapore") {
+    cityDetails.innerHTML = "Singapore, officially the Republic of Singapore, is a sovereign island city-state in maritime Southeast Asia.";
+    cityPopulation.innerHTML = "Population: 5,686 millon";
+  } else if (currentCity == "Timbuktu") {
+    cityDetails.innerHTML = "Timbuktu is a city in Mali, situated twenty kilometres (12 mi) north of the Niger River. The town is the capital of the Tombouctou Region, one of the eight administrative regions of Mali.";
+    cityPopulation.innerHTML = "Population: ~ 60 000";
+  } else if (currentCity == "Vienna") {
+    cityDetails.innerHTML = "Vienna is the national capital, largest city, and one of nine states of Austria.";
+    cityPopulation.innerHTML = "Population: 1,897 millon";
+  } else if (currentCity == "Qatar") {
+    cityDetails.innerHTML = "Qatar is a country in Western Asia. It occupies the small Qatar Peninsula on the northeastern coast of the Arabian Peninsula.";
+    cityPopulation.innerHTML = "Population: 2,881 millon";
+  } else if (currentCity == "Yukon") {
+    cityDetails.innerHTML = "Yukon is the smallest and westernmost of Canada's three territories. It also is the second-least populated province or territory in Canada.";
+    cityPopulation.innerHTML = "Population: 31 000";
+  }
+
+
+  cityButton.addEventListener("click", () => {
+    detailWindow.style.display = "block";
+  });
+
+  span.addEventListener("click", () => {
+    detailWindow.style.display = "none";
+  });
+
+  window.addEventListener("click", (event) => {
+    if (event.target == detailWindow) {
+      detailWindow.style.display = "none";
+    }
+  })
+
+}
+

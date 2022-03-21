@@ -45,6 +45,7 @@ async function router() {
 
   if (route == '/partials/start.html') {
     analogClock();
+    openDetailWindow();
   }
 
   if (route == '/partials/cities.html') {
