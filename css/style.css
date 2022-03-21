@@ -6,8 +6,11 @@
 
 body {
 --color-primary: #5D737E;
+--color-primary-light: #84a2b1;
 --color-secondary: #02111B;
 --color-onyx: #3F4045;
+--color-onyx-dark: #2c2d30;
+--color-onyx-light: #56585f;
 --color-raisin: #30292F;
 --color-orange: #ee791a;
 --color-white: #FCFCFC;
@@ -33,6 +36,8 @@ header {
 nav {
   display: flex;
   padding: 0 4px;
+  text-decoration: none;
+  color: var(--color-white);
 }
 
 .primary-navigation[data-visible="true"] {
@@ -86,7 +91,17 @@ nav {
 h2 {
   color: var(--color-orange);
   margin-top: 10px;
-  text-align: center;
+}
+
+h3 {
+  color: var(--color-primary);
+  font-style: italic;
+  margin-top: 50px;
+}
+
+p {
+  color: var(--color-primary);
+  padding: 20px;
 }
 
 a {
@@ -108,8 +123,67 @@ a:hover {
   padding: 12px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   background-color: var(--color-secondary);
   border: var(--color-onyx);
   border-style: solid;
+}
+
+.select-box {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  align-items: center;
+  color: var(--color-white);
+}
+
+.select-box .cityList {
+  background-color: var(--color-onyx);
+  color: var(--color-white);
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.select-box .cityList.active {
+  max-height: 240px;
+  opacity: 1;
+  overflow-y: scroll;
+}
+
+.select-box .cityList::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--color-onyx-dark);
+  border-radius: 0 8px 8px 0;
+}
+
+.select-box .cityList::-webkit-scrollbar-thumb {
+  background-color: var(--color-onyx-light);
+  border-radius: 0 8px 8px 0;
+}
+
+.select-box .option, .selectedCity {
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.select-box .option:hover {
+  background-color: #282828;
+  color: var(--color-orange);
+}
+
+.select-box label {
+  cursor: pointer;
+}
+
+.select-box .cityList .option input {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
 }

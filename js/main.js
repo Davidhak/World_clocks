@@ -44,12 +44,15 @@ async function router() {
   document.querySelector('main').innerHTML = content;
 
   if (route == '/partials/start.html') {
-    digitalClock();
     analogClock();
   }
 
-  route === '/partials/cities.html';
-  route === '/partials/add_city.html';
+  if (route == '/partials/cities.html') {
+    changeCity();
+  }
+
+  //route === '/partials/cities.html';
+  //route === '/partials/add_city.html';
 }
 
 window.addEventListener('popstate', router);
