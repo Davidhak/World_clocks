@@ -1,24 +1,3 @@
-/*function digitalClock() {
-
-  var time = new Date();
-
-  var hours = time.getHours();
-  var minutes = time.getMinutes();
-
-  var amPm = (hours < 12) ? "AM" : "PM";
-
-  hours = (hours > 12) ? hours - 12 : hours;
-
-  hours = ("0" + hours).slice(-2);
-  minutes = ("0" + minutes).slice(-2);
-
-  document.querySelector('.digitalTime').innerHTML =
-    hours + ":" + minutes + " " + amPm;
-
-  setTimeout(digitalClock, 500);
-}
-*/
-
 function analogClock() {
   const secondHand = document.querySelector('.second-hand');
   const minsHand = document.querySelector('.minute-hand');
@@ -29,6 +8,11 @@ function analogClock() {
   city.innerHTML = JSON.parse(cityName);
 
   var now = luxon.DateTime.now();
+
+  if (JSON.parse(cityName) == null) {
+    city.innerHTML = "Stockholm";
+    now = luxon.DateTime.now().setZone("Europe/Stockholm")
+  }
 
   if (city.innerHTML == "Algiers") {
     now = luxon.DateTime.now().setZone("Africa/Algiers")
@@ -111,8 +95,6 @@ function changeCity() {
 
       localStorage.setItem('selectedCity', JSON.stringify(selected.innerHTML));
 
-      // Ändra tiden på startsidan till vald stad
-
       window.location.assign('/');
 
     });
@@ -127,14 +109,18 @@ function openDetailWindow() {
   var cityName = document.querySelector('.detailCityName');
   var cityDetails = document.querySelector('.cityDetails');
   var cityPopulation = document.querySelector('.cityPopulation');
-  var detailContent = document.querySelector('.detailContent');
 
   var currentCity = JSON.parse(localStorage.getItem('selectedCity'));
 
-  cityName.innerHTML = currentCity;
+  if (currentCity == null) {
+    cityName.innerHTML = "Stockholm";
+  } else {
+    cityName.innerHTML = currentCity;
+  }
 
   if (currentCity == "Stockholm") {
     cityDetails.innerHTML = "Stockholm is the capital and largest city of Sweden as well as the largest urban area in Scandinavia.";
+    cityPopulation.innerHTML = "Population: 975 551"
   } else if (currentCity == "Algiers") {
     cityDetails.innerHTML = "Algiers is the capital and largest city of Algeria";
     cityPopulation.innerHTML = "Population: 7,896 millon";
