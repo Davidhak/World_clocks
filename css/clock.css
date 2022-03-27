@@ -5,7 +5,9 @@ article {
 .container {
   max-width: 800px;
   min-height: 300px;
+  width: 90%;
   margin: 0 auto;
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

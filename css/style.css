@@ -119,8 +119,10 @@ a:hover {
 .container2 {
   max-width: 800px;
   min-height: 300px;
+  width: 90%;
   margin: 0 auto;
-  padding: 12px;
+  
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -133,7 +135,8 @@ a:hover {
 .select-box {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  max-width: 400px;
+  width: 95%;
   align-items: center;
   color: var(--color-white);
 }
